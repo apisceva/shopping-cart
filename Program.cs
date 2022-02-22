@@ -22,9 +22,11 @@ dbo.Category cat
 left join dbo.Product pr on pr.CategoryID = cat.ID
 where pr.Name is not null
 order by
-cat.Name"; 
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ShopingCart;Integrated Security=True;";
-                                      
+cat.Name";
+//                                    @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ShoppingCart;Integrated Security=True"
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Initial Catalog=ShoppingCart";
+            //string connectionString = @"Source=STONE037\SQLEXPRESS;Initial Catalog=ShopingCart;Integrated Security=True;";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
